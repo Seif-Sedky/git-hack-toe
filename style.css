@@ -15,3 +15,28 @@ body {
     gap: 3vh;
 
 }
+
+button {
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 6px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    color: rgb(39, 36, 46);
+    background-image: linear-gradient(90deg, #00ff22, #00fff2);
+    box-shadow: 0 0 2px 3px #00ff22, 0 0 4px 4px #29224b;
+    transition: transform 0.3s ease;
+    /* Smooth movement */
+
+
+
+}
+
+button:hover {
+    transform: translateY(5px);
+    /* Move down 5 pixels */
+}
