@@ -27,9 +27,9 @@ button {
     border: none;
     border-radius: 8px;
 
-    color: rgb(39, 36, 46);
-    background-image: linear-gradient(90deg, #00ff22, #00fff2);
-    box-shadow: 0 0 2px 3px #00ff22, 0 0 4px 4px #29224b;
+    color: rgb(17, 14, 24);
+    background-image: linear-gradient(90deg, #6943af, #ba84da);
+    box-shadow: 0 0 3px 3px #29224b;
     transition: transform 0.3s ease;
     /* Smooth movement */
     text-shadow:
@@ -51,6 +51,34 @@ label {
     color: #13003f;
     text-shadow:
         0 0 1px #000000;
+}
+
+input {
+    padding: 12px 12px;
+    width: 10vw;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+    background-color: #1f1c2c;
+
+    border: 2px solid transparent;
+    border-radius: 8px;
+
+    background-image: linear-gradient(#1f1c2c, #1f1c2c),
+        linear-gradient(90deg, #444444, #3700ff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+
+
+input:focus {
+    background-image: linear-gradient(#1f1c2c, #1f1c2c),
+        linear-gradient(90deg, #be5cff, #00ffff);
+    box-shadow: 0 0 10px rgba(183, 185, 17, 0.3);
 }
 
 .title {
