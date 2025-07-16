@@ -11,9 +11,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    gap: 3vh;
+    padding: 20px;
+    gap: 10vh;
 
+}
+
+p {
+    margin: 0px;
 }
 
 button {
@@ -30,8 +34,8 @@ button {
     color: rgb(17, 14, 24);
     background-image: linear-gradient(90deg, #6943af, #ba84da);
     box-shadow: 0 0 3px 3px #29224b;
-    transition: transform 0.3s ease;
     /* Smooth movement */
+    transition: transform 0.3s ease;
     text-shadow:
         0 0 1px #4f3391;
 
@@ -82,9 +86,45 @@ input:focus {
 }
 
 .title {
+    margin-top: 3vh;
     font-size: 3vw;
     font-weight: 900;
     text-shadow:
         0 0 2px #575757,
         0 0 4px #000000
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+
+    background-image: linear-gradient(#2d283f, #928dab);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+
+    min-width: 650px;
+    min-height: 450px;
+
+}
+
+.cell {
+    border: 2px solid #6354b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cell:hover {
+    background-color: #2a2640;
+}
+
+.cell[data-status="winner"] {
+    background-image: linear-gradient(#be5cff, #ffb756);
 }
