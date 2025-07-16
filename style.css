@@ -17,6 +17,7 @@ body {
 }
 
 button {
+
     font-family: sans-serif;
     font-weight: 900;
     font-size: 25px;
@@ -31,7 +32,8 @@ button {
     box-shadow: 0 0 2px 3px #00ff22, 0 0 4px 4px #29224b;
     transition: transform 0.3s ease;
     /* Smooth movement */
-
+    text-shadow:
+        0 0 1px #4f3391;
 
 
 }
@@ -39,6 +41,16 @@ button {
 button:hover {
     transform: translateY(5px);
     /* Move down 5 pixels */
+}
+
+label {
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    cursor: pointer;
+    color: #13003f;
+    text-shadow:
+        0 0 1px #000000;
 }
 
 .title {
