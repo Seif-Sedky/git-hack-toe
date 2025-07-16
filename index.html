@@ -26,20 +26,24 @@
 
 
 
-    <div class="input-wrapper">
-        <form action="submit" class="form">
-            <label for="player1">Player 1:</label>
-            <input type="text" id="player1">
+    <form action="submit" class="form">
 
-            <label for="player2">Player 2:</label>
-            <input type="text" id="player2">
-            <button class="start-game" type="submit">Start Game</button>
-        </form>
-        <div class="gameplay-buttons">
-            <button class="restart-btn" type="button">Restart</button>
-            <button class="change-btn" type="submit">Change Names</button>
+        <div class="input-wrapper">
+
+            <div class="input-item">
+                <input type="text" id="player1" placeholder="Player I" required>
+            </div>
+
+            <div class="input-item">
+                <input type="text" id="player2" placeholder="Player II" required>
+            </div>
         </div>
 
+        <button class="start-game" type="submit">Start Game</button>
+    </form>
+    <div class="gameplay-buttons">
+        <button class="restart-btn" type="button">Restart</button>
+        <button class="change-btn" type="submit">Change Names</button>
     </div>
 </body>
 

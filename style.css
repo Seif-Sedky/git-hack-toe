@@ -39,6 +39,9 @@ button {
     text-shadow:
         0 0 1px #4f3391;
 
+    min-width: 12vw;
+    min-height: 6vh;
+
 
 }
 
@@ -47,27 +50,19 @@ button:hover {
     /* Move down 5 pixels */
 }
 
-label {
-    font-family: sans-serif;
-    font-weight: 900;
-    font-size: 30px;
-    cursor: pointer;
-    color: #13003f;
-    text-shadow:
-        0 0 1px #000000;
-}
 
 input {
     padding: 12px 12px;
     width: 10vw;
     font-size: 20px;
+    color: #aaa;
+    font-weight: 900;
     font-family: sans-serif;
-    color: white;
     background-color: #1f1c2c;
 
     border: 2px solid transparent;
-    border-radius: 8px;
 
+    border-radius: 8px;
     background-image: linear-gradient(#1f1c2c, #1f1c2c),
         linear-gradient(90deg, #444444, #3700ff);
     background-origin: border-box;
@@ -75,8 +70,14 @@ input {
 
     transition: all 0.3s ease;
     outline: none;
+
 }
 
+input::placeholder {
+    font-size: 22px;
+    text-shadow:
+        0 0 3px #000000;
+}
 
 
 input:focus {
@@ -101,7 +102,7 @@ input:focus {
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
 
-    background-image: linear-gradient(210deg,#2d283f, #7d7891);
+    background-image: linear-gradient(210deg, #2d283f, #7d7891);
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
 
     min-width: 650px;
@@ -127,4 +128,21 @@ input:focus {
 
 .cell[data-status="winner"] {
     background-image: linear-gradient(#be5cff, #ffb756);
+}
+
+
+.gameplay-buttons {
+    display: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6vh;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 5vw;
 }
