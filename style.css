@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    gap: 10vh;
+    gap: 8vh;
 
 }
 
@@ -33,7 +33,7 @@ button {
 
     color: rgb(17, 14, 24);
     background-image: linear-gradient(90deg, #6943af, #ba84da);
-    box-shadow: 0 0 3px 3px #29224b;
+    box-shadow: 0 0 3px 3px #4c4764;
     /* Smooth movement */
     transition: transform 0.3s ease;
     text-shadow:
@@ -101,7 +101,7 @@ input:focus {
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
 
-    background-image: linear-gradient(#2d283f, #928dab);
+    background-image: linear-gradient(210deg,#2d283f, #7d7891);
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
 
     min-width: 650px;
@@ -110,7 +110,7 @@ input:focus {
 }
 
 .cell {
-    border: 2px solid #6354b1;
+    border: 2px solid #73699e;
     display: flex;
     align-items: center;
     justify-content: center;
