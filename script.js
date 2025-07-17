@@ -72,22 +72,10 @@ function GridManager() {
 
     }
 
+    return { playMove, resetMoves, checkDraw, checkWin };
+
 }
 
-function DisplayManager() {
-
-    function playMove() {
-
-    }
-
-    function resetMoves() {
-
-    }
-
-    function showWin() {
-
-    }
-}
 
 function gameManager() {
 }
@@ -121,7 +109,7 @@ function Player(name) {
 }
 
 
-function domManager() {
+function DomManager() {
     let form = document.querySelector(".form");
     let restartBtn = document.querySelector(".restart-btn");
     let playAgainBtn = document.querySelector(".play-again-btn");
@@ -132,19 +120,114 @@ function domManager() {
 }
 
 
+function GridManager() {
+    const gameDimensions = 3;
+    let grid = [];
+    for (let i = 0; i < gameDimensions; i++) {
+        grid[i] = Array(gameDimensions).fill(null);
+    }
+    function playMove(move, cell) {
+        const row = parseInt(cell.dataset.row);
+        const col = parseInt(cell.dataset.col);
+        grid[row][col] = move;
+    }
+
+    function resetMoves() {
+        for (let i = 0; i < grid.length; i++) {
+            for (let j = 0; j < grid[i].length; j++) {
+                grid[i][j] = null;
+            }
+        }
+    }
+
+    function checkDraw(grid) {
+
+        const filled = (arr) => arr.every((val) => val);
+        for (let i = 0; i < gameDimensions; i++) {
+            if (!filled(grid[1])) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+    function checkWin(grid) {
+
+
+        //check rows
+        for (let i = 0; i < size; i++) {
+            if (allEqual(grid[i]))
+                return true;
+        }
+
+        //check columns
+        for (let i = 0; i < size; i++) {
+            const column = grid.map((row) => row[i]);
+            if (allEqual(column))
+                return true;
+        }
+
+
+        //check diagonal
+        const diag = grid.map((row, i) => row[i]);
+        if (allEqual(diag))
+            return true;
+
+
+        //check anti diagonal 
+        const antiDiag = grid.map((row, i) => row[(size - i) - 1]);
+        if (allEqual(antiDiag))
+            return true;
+
+        return false;
+
+    }
+
+    return { playMove, resetMoves, checkDraw, checkWin };
+
+}
+
+
+
+function DisplayManager() {
+
+    function playMove(move, cell) {
+
+        cell.classList.add(move);
+        cell.textContent = move.toUpperCase();
+
+        //note that when adding the class it auto disables the button when clicked again
+    }
+
+    function resetMoves() {
+
+    }
+
+    function showWin() {
+
+    }
+
+    return { playMove, resetMoves, showWin };
+}
+
 
 function gameEngine() {
-
-    const dom = domManager();
     let gameStarted = false;
+    let turn = 0;
+
     let playerOne;
     let playerTwo;
 
+    const domManager = DomManager();
+    const displayManager = DisplayManager();
+    const gridManager = GridManager();
 
 
-    dom.form.addEventListener('submit', (e) => {
+    domManager.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const formData = new FormData(dom.form);
+        const formData = new FormData(domManager.form);
 
         let player1 = formData.get('player1');
         let player2 = formData.get('player2');
@@ -152,33 +235,43 @@ function gameEngine() {
         playerTwo = Player(player2);
 
         gameStarted = true;
-        dom.form.style.display = "none";
-        dom.gameplayButtons.style.display = "flex";
+        domManager.form.style.display = "none";
+        domManager.gameplayButtons.style.display = "flex";
 
-        dom.form.reset();
+        domManager.form.reset();
 
 
     });
 
 
-    dom.grid.addEventListener("click", (e) => {
-        if (gameStarted && e.target.classList.contains(".cell")) {
-            
+    domManager.grid.addEventListener("click", (e) => {
+        if (gameStarted && e.target.classList.contains("cell") && !e.target.classList.contains("x") && !e.target.classList.contains("o")) {
 
+            //get move to be played
+            let move = turn % 2 === 0 ? 'x' : 'o'
 
+            //add move in front end
+            displayManager.playMove(move, e.target);
 
+            //add move in backend 
+            gridManager.playMove(move, e.target);
 
+            //increment turn
+            turn++;
 
+            //check win
+
+            //check tie 
 
         }
     });
 
 
-    dom.restartBtn.addEventListener("click", (e) => {
+    domManager.restartBtn.addEventListener("click", (e) => {
 
     });
 
-    dom.playAgainBtn.addEventListener("click", (e) => {
+    domManager.playAgainBtn.addEventListener("click", (e) => {
 
     });
 
