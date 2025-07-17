@@ -159,8 +159,9 @@ input:focus {
 .game-winner {
     font-size: 3vw;
     font-weight: 900;
-    text-shadow: 0 0 4px #2c2b2b;
+    text-shadow: 0 0 6px #2c2b2b;
     color: rgb(201, 201, 201);
+    font-style: italic;
 }
 
 

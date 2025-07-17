@@ -7,97 +7,6 @@ and vice versa when change names is clicked, you could add anmation before displ
 /* when change name restart grid and make it unclickable again */
 
 
-
-
-
-
-function GridManager() {
-    const gameDimensions = 3;
-    let grid = [gameDimensions][gameDimensions];
-
-    function playMove(i, j, c) {
-        grid[i][j] = c;
-    }
-
-    function resetMoves() {
-        for (let i = 0; i < grid.length; i++) {
-            for (let j = 0; j < grid[i].length; j++) {
-                grid[i][j] = null;
-            }
-        }
-    }
-
-    function checkDraw(grid) {
-
-        const filled = (arr) => arr.every((val) => val);
-        for (let i = 0; i < gameDimensions; i++) {
-            if (!filled(grid[1])) {
-                return false;
-            }
-        }
-        return true;
-
-    }
-
-
-    function checkWin(grid) {
-
-
-        //check rows
-        for (let i = 0; i < size; i++) {
-            if (allEqual(grid[i]))
-                return true;
-        }
-
-        //check columns
-        for (let i = 0; i < size; i++) {
-            const column = grid.map((row) => row[i]);
-            if (allEqual(column))
-                return true;
-        }
-
-
-        //check diagonal
-        const diag = grid.map((row, i) => row[i]);
-        if (allEqual(diag))
-            return true;
-
-
-        //check anti diagonal 
-        const antiDiag = grid.map((row, i) => row[(size - i) - 1]);
-        if (allEqual(antiDiag))
-            return true;
-
-        return false;
-
-    }
-
-    return { playMove, resetMoves, checkDraw, checkWin };
-
-}
-
-
-function gameManager() {
-}
-
-function eventManager() {
-
-
-    const startGame = () => { };
-
-    const endGame = () => {
-
-    };
-
-    const resetGame = () => {
-        endGame();
-        startGame();
-    };
-
-    const changeNames = () => { };
-
-}
-
 function Player(name) {
     let player = name;
     const getPlayerName = function () {
@@ -106,7 +15,7 @@ function Player(name) {
     const setPlayerName = function (newName) {
         name = newName;
     }
-    return {getPlayerName, setPlayerName};
+    return { getPlayerName, setPlayerName };
 }
 
 
@@ -116,8 +25,10 @@ function DomManager() {
     let playAgainBtn = document.querySelector(".play-again-btn");
     let grid = document.querySelector(".grid");
     let gameplayButtons = document.querySelector(".gameplay-buttons");
+    let winnerP = document.querySelector(".game-winner");
 
-    return { form, restartBtn, playAgainBtn, grid, gameplayButtons };
+
+    return { form, restartBtn, playAgainBtn, grid, gameplayButtons, winnerP };
 }
 
 
@@ -266,7 +177,8 @@ function gameEngine() {
             if (gridManager.checkWin()) {
                 //last player that played is the winner
                 let winner = turn % 2 === 0 ? playerOne.getPlayerName() : playerTwo.getPlayerName();
-                console.log(winner);
+                domManager.winnerP.textContent = `${winner.toUpperCase()} WON THE GAME`;
+                gameStarted = false;
             }
 
             //check tie 
