@@ -140,7 +140,7 @@ function GridManager() {
         }
     }
 
-    function checkDraw(grid) {
+    function checkDraw() {
 
         const filled = (arr) => arr.every((val) => val);
         for (let i = 0; i < gameDimensions; i++) {
@@ -153,17 +153,19 @@ function GridManager() {
     }
 
 
-    function checkWin(grid) {
+    function checkWin() {
 
+
+        const allEqual = (arr) => arr.every((val) => val && val === arr[0]);
 
         //check rows
-        for (let i = 0; i < size; i++) {
+        for (let i = 0; i < gameDimensions; i++) {
             if (allEqual(grid[i]))
                 return true;
         }
 
         //check columns
-        for (let i = 0; i < size; i++) {
+        for (let i = 0; i < gameDimensions; i++) {
             const column = grid.map((row) => row[i]);
             if (allEqual(column))
                 return true;
@@ -177,7 +179,7 @@ function GridManager() {
 
 
         //check anti diagonal 
-        const antiDiag = grid.map((row, i) => row[(size - i) - 1]);
+        const antiDiag = grid.map((row, i) => row[(gameDimensions - i) - 1]);
         if (allEqual(antiDiag))
             return true;
 
@@ -256,12 +258,21 @@ function gameEngine() {
             //add move in backend 
             gridManager.playMove(move, e.target);
 
-            //increment turn
-            turn++;
+
 
             //check win
+            if (gridManager.checkWin()) {
+                //last player that played is the winner
+                let winner = turn % 2 === 0 ? playerOne : playerTwo;
+                console.log(winner);
+            }
 
             //check tie 
+            else if (gridManager.checkDraw()) {
+
+            }
+            //increment turn
+            turn++;
 
         }
     });
