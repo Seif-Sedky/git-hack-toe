@@ -75,6 +75,8 @@ function GridManager() {
 }
 
 function DisplayManager() {
+    let gameStarted = false;
+
     function playMove() {
 
     }
@@ -107,4 +109,18 @@ function eventManager() {
     };
 
     const changeNames = () => { };
+
+}
+
+
+function domManager{
+    let startBtn = document.querySelector(".start-game");
+    let form = document.querySelector(".form");
+
+    let restartBtn = document.querySelector(".restart-btn");
+    let changeBtn = document.querySelector(".change-btn");
+
+
+    let grid = document.querySelector(".grid");
+
 }

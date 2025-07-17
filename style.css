@@ -90,7 +90,7 @@ input:focus {
     margin-top: 3vh;
     font-size: 3vw;
     font-weight: 900;
-    text-shadow:0 0 4px #2c2b2b;
+    text-shadow: 0 0 4px #2c2b2b;
     color: rgb(0, 0, 0);
 
 }
@@ -148,4 +148,12 @@ input:focus {
 .input-wrapper {
     display: flex;
     gap: 5vw;
+}
+
+
+.game-winner {
+    font-size: 3vw;
+    font-weight: 900;
+    text-shadow: 0 0 4px #2c2b2b;
+    color: rgb(201, 201, 201);
 }
