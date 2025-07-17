@@ -156,6 +156,22 @@ function gameEngine() {
         dom.gameplayButtons.style.display = "flex";
 
         dom.form.reset();
+
+
+    });
+
+
+    dom.grid.addEventListener("click", (e) => {
+
+    });
+
+
+    dom.restartBtn.addEventListener("click", (e) => {
+
+    });
+
+    dom.changeBtn.addEventListener("click", (e) => {
+
     });
 
 }
