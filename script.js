@@ -26,9 +26,9 @@ function DomManager() {
     let grid = document.querySelector(".grid");
     let gameplayButtons = document.querySelector(".gameplay-buttons");
     let winnerP = document.querySelector(".game-winner");
+    let title = document.querySelector(".title");
 
-
-    return { form, restartBtn, playAgainBtn, grid, gameplayButtons, winnerP };
+    return { form, restartBtn, playAgainBtn, grid, gameplayButtons, winnerP, title };
 }
 
 
@@ -154,6 +154,9 @@ function gameEngine() {
         domManager.form.style.display = "none";
         domManager.gameplayButtons.style.display = "flex";
 
+        //remove title
+        domManager.title.textContent = "";
+
         domManager.form.reset();
 
 
@@ -162,6 +165,9 @@ function gameEngine() {
 
     domManager.grid.addEventListener("click", (e) => {
         if (gameStarted && e.target.classList.contains("cell") && !e.target.classList.contains("x") && !e.target.classList.contains("o")) {
+
+
+
 
             //get move to be played
             let move = turn % 2 === 0 ? 'x' : 'o'
@@ -203,6 +209,7 @@ function gameEngine() {
         playerOne.setPlayerName("Player I");
         playerTwo.setPlayerName("Player II");
         turn = 0;
+        domManager.title.textContent = "Git Hack Toe";
     });
 
     domManager.playAgainBtn.addEventListener("click", (e) => {
