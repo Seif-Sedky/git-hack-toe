@@ -113,7 +113,8 @@ function eventManager() {
 }
 
 
-function domManager{
+function domManager(){
+
     let startBtn = document.querySelector(".start-game");
     let form = document.querySelector(".form");
 
