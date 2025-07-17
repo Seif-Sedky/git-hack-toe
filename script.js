@@ -178,7 +178,7 @@ function gameEngine() {
             if (gridManager.checkWin()) {
                 //last player that played is the winner
                 let winner = turn % 2 === 0 ? playerOne.getPlayerName() : playerTwo.getPlayerName();
-                let message = turn % 2 === 0 ? `${winner} strikes through. X marks the win.` : `${winner} completes the cycle. O triumphs.`;
+                let message = turn % 2 === 0 ? `${winner} strikes through. X marks the win` : `${winner} completes the cycle. O triumphs`;
                 domManager.winnerP.textContent = message.toUpperCase();
                 gameStarted = false;
             }
