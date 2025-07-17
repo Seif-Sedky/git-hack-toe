@@ -75,7 +75,6 @@ function GridManager() {
 }
 
 function DisplayManager() {
-    let gameStarted = false;
 
     function playMove() {
 
@@ -94,8 +93,7 @@ function gameManager() {
 }
 
 function eventManager() {
-    let p1 = "Player I";
-    let p2 = "Player II";
+
 
     const startGame = () => { };
 
@@ -112,16 +110,46 @@ function eventManager() {
 
 }
 
+function Player(name) {
+    let player = name;
+    const getPlayerName = function () {
+        return name;
+    }
+    const setPlayerName = function (newName) {
+        name = newName;
+    }
+}
 
-function domManager(){
 
-    let startBtn = document.querySelector(".start-game");
+function domManager() {
+
     let form = document.querySelector(".form");
-
     let restartBtn = document.querySelector(".restart-btn");
     let changeBtn = document.querySelector(".change-btn");
-
-
     let grid = document.querySelector(".grid");
+    let gameplayButtons = document.querySelector(".gameplay-buttons");
+
+
+    let gameStarted = false;
+    let playerOne;
+    let playerTwo;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        let player1 = formData.get('player1');
+        let player2 = formData.get('player2');
+        playerOne = Player(player1);
+        playerTwo = Player(player2);
+
+        gameStarted = true;
+        form.style.display = "none";
+        gameplayButtons.style.display = "flex";
+
+        form.reset();
+    });
 
 }
+
+domManager();
