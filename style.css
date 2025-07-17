@@ -164,3 +164,29 @@ input:focus {
 }
 
 
+
+.cell.x,
+.cell.o {
+    font-size: 4rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* reset cursor */
+    cursor: default;
+
+    transition: transform 0.3s ease;
+}
+
+/* X - Neon Purple */
+.cell.x {
+    color: #be5cff;
+    text-shadow: 0 0 8px #be5cff, 0 0 8px #be5cff, 0 0 12px #8b00ff;
+}
+
+/* O - Neon Cyan */
+.cell.o {
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff, 0 0 8px #00ffff, 0 0 12px #00bfbf;
+}

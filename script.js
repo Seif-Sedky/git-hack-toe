@@ -124,11 +124,11 @@ function Player(name) {
 function domManager() {
     let form = document.querySelector(".form");
     let restartBtn = document.querySelector(".restart-btn");
-    let changeBtn = document.querySelector(".change-btn");
+    let playAgainBtn = document.querySelector(".play-again-btn");
     let grid = document.querySelector(".grid");
     let gameplayButtons = document.querySelector(".gameplay-buttons");
 
-    return { form, restartBtn, changeBtn, grid, gameplayButtons };
+    return { form, restartBtn, playAgainBtn, grid, gameplayButtons };
 }
 
 
@@ -162,7 +162,15 @@ function gameEngine() {
 
 
     dom.grid.addEventListener("click", (e) => {
+        if (gameStarted && e.target.classList.contains(".cell")) {
+            
 
+
+
+
+
+
+        }
     });
 
 
@@ -170,7 +178,7 @@ function gameEngine() {
 
     });
 
-    dom.changeBtn.addEventListener("click", (e) => {
+    dom.playAgainBtn.addEventListener("click", (e) => {
 
     });
 
