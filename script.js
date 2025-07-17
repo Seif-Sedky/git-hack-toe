@@ -27,10 +27,21 @@ function GridManager() {
         }
     }
 
+    function checkDraw(grid) {
+
+        const filled = (arr) => arr.every((val) => val);
+        for (let i = 0; i < gameDimensions; i++) {
+            if (!filled(grid[1])) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 
     function checkWin(grid) {
-        const size = grid.length;
-        const allEqual = (arr) => arr.every((val) => val && val === arr[i]);
+
 
         //check rows
         for (let i = 0; i < size; i++) {
@@ -81,16 +92,16 @@ function gameManager() {
 }
 
 function eventManager() {
-    let p1="Player I";
-    let p2="Player II";
+    let p1 = "Player I";
+    let p2 = "Player II";
 
     const startGame = () => { };
 
-    const endGame = () => { 
-        
+    const endGame = () => {
+
     };
 
-    const resetGame = () => { 
+    const resetGame = () => {
         endGame();
         startGame();
     };
