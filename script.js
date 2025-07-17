@@ -202,6 +202,7 @@ function gameEngine() {
         domManager.gameplayButtons.style.display = "";
         playerOne.setPlayerName("Player I");
         playerTwo.setPlayerName("Player II");
+        turn = 0;
     });
 
     domManager.playAgainBtn.addEventListener("click", (e) => {
