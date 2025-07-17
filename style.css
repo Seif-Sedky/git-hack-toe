@@ -87,7 +87,6 @@ input::placeholder {
 
 
 input:focus {
-
     background-image: linear-gradient(#1f1c2c, #1f1c2c),
         linear-gradient(90deg, #be5cff, #00ffff);
     box-shadow: 0 0 10px rgba(183, 185, 17, 0.3);

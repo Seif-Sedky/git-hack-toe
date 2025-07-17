@@ -122,21 +122,29 @@ function Player(name) {
 
 
 function domManager() {
-
     let form = document.querySelector(".form");
     let restartBtn = document.querySelector(".restart-btn");
     let changeBtn = document.querySelector(".change-btn");
     let grid = document.querySelector(".grid");
     let gameplayButtons = document.querySelector(".gameplay-buttons");
 
+    return { form, restartBtn, changeBtn, grid, gameplayButtons };
+}
 
+
+
+function gameEngine() {
+
+    const dom = domManager();
     let gameStarted = false;
     let playerOne;
     let playerTwo;
 
-    form.addEventListener('submit', (e) => {
+
+
+    dom.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const formData = new FormData(form);
+        const formData = new FormData(dom.form);
 
         let player1 = formData.get('player1');
         let player2 = formData.get('player2');
@@ -144,12 +152,12 @@ function domManager() {
         playerTwo = Player(player2);
 
         gameStarted = true;
-        form.style.display = "none";
-        gameplayButtons.style.display = "flex";
+        dom.form.style.display = "none";
+        dom.gameplayButtons.style.display = "flex";
 
-        form.reset();
+        dom.form.reset();
     });
 
 }
 
-domManager();
+gameEngine();
