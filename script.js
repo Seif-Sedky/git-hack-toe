@@ -56,7 +56,7 @@ function GridManager() {
 
         const filled = (arr) => arr.every((val) => val);
         for (let i = 0; i < gameDimensions; i++) {
-            if (!filled(grid[1])) {
+            if (!filled(grid[i])) {
                 return false;
             }
         }
