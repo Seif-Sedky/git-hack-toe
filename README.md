@@ -21,7 +21,7 @@
 - 🎮 **Gameplay**
   - Handles win detection (rows, columns, diagonals) and draw states.
   - Dynamic win messages with personality — tailored for player and symbol.
-  - Interactive name entry and game reset without reloading the page.
+  - Interactive name entry and game reset without reloading the page. 
 
 - ⚙️ **Code Quality**
   - Incredibly **clean and readable codebase**.
