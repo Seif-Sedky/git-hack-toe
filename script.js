@@ -196,15 +196,24 @@ function gameEngine() {
 
 
     domManager.restartBtn.addEventListener("click", (e) => {
-
+        endGame();
+        gameStarted = false;
+        domManager.form.style.display = "flex";
+        domManager.gameplayButtons.style.display = "";
+        playerOne.setPlayerName("Player I");
+        playerTwo.setPlayerName("Player II");
     });
 
     domManager.playAgainBtn.addEventListener("click", (e) => {
+        endGame();
+        gameStarted = true;
+    });
+
+    function endGame() {
         gridManager.resetMoves();
         displayManager.resetMoves(domManager.grid);
         domManager.winnerP.textContent = "";
-        gameStarted = true;
-    });
+    }
 
 }
 
