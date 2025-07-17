@@ -177,13 +177,15 @@ function gameEngine() {
             if (gridManager.checkWin()) {
                 //last player that played is the winner
                 let winner = turn % 2 === 0 ? playerOne.getPlayerName() : playerTwo.getPlayerName();
-                domManager.winnerP.textContent = `${winner.toUpperCase()} WON THE GAME`;
+                let message = turn % 2 === 0 ? `${winner} strikes through. X marks the win.` : `${winner} completes the cycle. O triumphs.`;
+                domManager.winnerP.textContent = message.toUpperCase();
                 gameStarted = false;
             }
 
             //check tie 
             else if (gridManager.checkDraw()) {
-
+                domManager.winnerP.textContent = `SYMMETRY ACHIEVED, ENTROPY WINS`;
+                gameStarted = false;
             }
             //increment turn
             turn++;
