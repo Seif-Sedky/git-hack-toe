@@ -45,10 +45,8 @@ function GridManager() {
     }
 
     function resetMoves() {
-        for (let i = 0; i < grid.length; i++) {
-            for (let j = 0; j < grid[i].length; j++) {
-                grid[i][j] = null;
-            }
+        for (let i = 0; i < gameDimensions; i++) {
+            grid[i] = Array(gameDimensions).fill(null);
         }
     }
 
@@ -115,15 +113,18 @@ function DisplayManager() {
         //note that when adding the class it auto disables the button when clicked again
     }
 
-    function resetMoves() {
+    function resetMoves(grid) {
+
+        for (const child of grid.children) {
+            child.classList.remove("x");
+            child.classList.remove("o");
+            child.textContent = "";
+        }
 
     }
 
-    function showWin() {
 
-    }
-
-    return { playMove, resetMoves, showWin };
+    return { playMove, resetMoves };
 }
 
 
@@ -187,7 +188,7 @@ function gameEngine() {
                 domManager.winnerP.textContent = `SYMMETRY ACHIEVED, ENTROPY WINS`;
                 gameStarted = false;
             }
-            //increment turn
+            //increment turn even if the game ended to switch starting player
             turn++;
 
         }
@@ -199,7 +200,10 @@ function gameEngine() {
     });
 
     domManager.playAgainBtn.addEventListener("click", (e) => {
-
+        gridManager.resetMoves();
+        displayManager.resetMoves(domManager.grid);
+        domManager.winnerP.textContent = "";
+        gameStarted = true;
     });
 
 }
