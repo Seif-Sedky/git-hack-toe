@@ -106,6 +106,7 @@ function Player(name) {
     const setPlayerName = function (newName) {
         name = newName;
     }
+    return {getPlayerName, setPlayerName};
 }
 
 
@@ -233,6 +234,7 @@ function gameEngine() {
 
         let player1 = formData.get('player1');
         let player2 = formData.get('player2');
+
         playerOne = Player(player1);
         playerTwo = Player(player2);
 
@@ -263,7 +265,7 @@ function gameEngine() {
             //check win
             if (gridManager.checkWin()) {
                 //last player that played is the winner
-                let winner = turn % 2 === 0 ? playerOne : playerTwo;
+                let winner = turn % 2 === 0 ? playerOne.getPlayerName() : playerTwo.getPlayerName();
                 console.log(winner);
             }
 
